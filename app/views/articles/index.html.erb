@@ -1,0 +1,49 @@
+ <div class="container">
+ <h1>Listing articles</h1>
+  <%= link_to 'New article', new_article_path %>
+ <table class=" table table-hover">
+ <div class="container">
+   <tr>
+     <th>Title</th>
+     <th>Text</th>
+     <th colspan="3"></th>
+   </tr>
+
+
+   <% @articles.each do |article| %>
+     <tr>
+       <td><%= article.title %></td>
+
+       <td><%= truncate(article.text, :length => 150,  :separator => ' ') %><td>
+       <td><button type="button" class="btn btn-default"><%= link_to 'Show', article_path(article) %></button></td>
+       <td><button type="button" class="btn btn-default"><%= link_to 'Edit', edit_article_path(article) %></button></td>
+       <td><button type="button" class="btn btn-default"><%= link_to 'Destroy', article_path(article),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+     </tr>
+
+
+   <% end %>
+   </div>
+  </table><br><br>
+
+     <%= will_paginate @articles %>
+
+
+<style type="text/css">
+a{
+  color: red;
+}
+h1{
+  margin-left: 420px;
+}
+
+.pagination {
+margin-left: 420px;
+  }
+
+.current{
+ display: inline-block;
+  border: 1px solid gray;
+}
+
+</style>

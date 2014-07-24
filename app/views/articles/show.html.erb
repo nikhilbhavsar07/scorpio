@@ -1,0 +1,37 @@
+
+<div>
+ <%= image_tag @article.avatar.url(:large) %><br>
+ </div>
+ <% @article.tags.any? %>
+ <% @article.tags.each do |tag| %>
+   <%= link_to tag.name, articles_url(:tag => tag.name) %>
+ <% end %>
+<div>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</div>
+
+<div>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</div>
+<div>
+<h2>Comments</h2>
+ <%= render @article.comments %>
+</div>
+
+<h2>Add a comment:</h2>
+ <%= render "comments/form" %>
+
+
+<%= link_to 'Edit Article', edit_article_path(@article) %>
+<%= link_to 'Back to Articles', articles_path %>
+
+
+
+<style>
+h2{
+  margin-left: 420px;
+}
+
+</style>

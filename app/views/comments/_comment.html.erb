@@ -1,0 +1,33 @@
+<div class="container">
+<table class=" table table-condensed">
+  <tr>
+     <td><strong>Commenter:</strong>
+         <%= comment.commenter %>
+     </td>
+ </tr>
+ <tr>
+     <td>
+         <strong>Comment:</strong>
+         <%= comment.body %>
+     </td>
+  </tr>
+
+  <td>
+     <button type="button" class="btn btn-default"><%= link_to 'Destroy Comment', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %></button>
+  </td>
+</table>
+</div>
+
+_
+<style type="text/css">
+a {
+  color: red;
+}
+h2 {
+  color: black;
+  margin-left: 420px;
+}
+
+</style>

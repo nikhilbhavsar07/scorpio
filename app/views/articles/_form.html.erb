@@ -1,0 +1,52 @@
+<%= form_for @article ,:html => { :multipart => true, class: 'form-horizontal'} do |f| %>
+  <% if @article.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:</h2>
+     <ul>
+       <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+       <% end %>
+     </ul>
+   </div>
+<% end %>
+
+  <div class="form-group">
+     <%= f.label :title, class: "col-sm-1 control-label" %>
+    <div class="col-sm-11">
+     <%= f.text_field :title, class: "form-control" %><br>
+    </div>
+  </div>
+  <div class="form-group">
+     <%= f.label :text, class: "col-sm-1 control-label" %>
+    <div class="col-sm-11">
+     <%= f.text_area :text, class: "form-control" %><br>
+    </div>
+  </div>
+
+<div >
+     <%= f.file_field :avatar %><br>
+</div>
+
+
+  <div class="form-group">
+      <%= f.label :tags, class: "col-sm-1 control-label" %>
+    <div class="col-sm-11">
+      <%= f.text_field :tag_list, class: "form-control" %><br>
+    </div>
+  </div>
+
+  <p>
+     <%= f.submit %>
+  </p>
+
+
+<% end %>
+<style>
+a{
+  color:red;
+}
+h1{
+  margin-left: 420px;
+}
+</style>
