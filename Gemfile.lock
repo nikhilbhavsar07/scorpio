@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (3.0.1)
       rails (>= 3, < 5)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     bootstrap-sass (3.1.1.1)
@@ -52,9 +53,20 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.33.0)
     execjs (2.2.1)
     font-awesome-sass (4.1.0)
       sass (~> 3.2)
+    heroku (3.9.6)
+      excon (= 0.33.0)
+      heroku-api (= 0.3.18)
+      launchy (= 2.4.2)
+      netrc (= 0.7.7)
+      rest-client (= 1.6.7)
+      rubyzip (= 0.9.9)
+    heroku-api (0.3.18)
+      excon (~> 0.27)
+      multi_json (~> 1.8)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.1.2)
@@ -64,18 +76,22 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    launchy (2.4.2)
+      addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (5.4.0)
     multi_json (1.10.1)
+    netrc (0.7.7)
     orm_adapter (0.5.0)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.17.0)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -90,6 +106,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.4)
       sprockets-rails (~> 2.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.4)
       actionpack (= 4.1.4)
       activesupport (= 4.1.4)
@@ -98,6 +119,9 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rubyzip (0.9.9)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -117,7 +141,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.9)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -144,14 +167,16 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   font-awesome-sass
+  heroku
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (~> 4.1)
+  pg
   rails (= 4.1.4)
+  rails_12factor
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
-  sqlite3
   turbolinks
   uglifier (>= 1.3.0)
   will_paginate
